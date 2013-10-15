@@ -55,7 +55,7 @@
     </hgroup>
     <article>
       <br>
-      <p><b><font color="orange">Motivation</font></b></p><br>
+      <p><font color="green">Motivation</font></p><br>
       <p>A little history</p><br>
       <p>Concept/Terminology</p><br>
       <p>Paradigm</p>
@@ -68,13 +68,13 @@
       <h2>Where to start</h2>
     </hgroup>
     <article>
-      <div class="build fade">
+      <div>
         <p>A simple example</p>
         <p lang="latex">$$ d_{1} + d_{2} + d_{3} + d_{4} + d_{5} +  ... + d_{k-1} + d_{k} $$</p>
-        <ul>
+        <ul class="build fade">
           <li><font size="3">single cpu 2.0GHz | 0.5 ns | 4 pipelines</font></li>
           <li><font size="3">+ | C.float.add | 5 cycle</font></li>
-          <li><font size="3">k | 2*10^{8} adds | 1s</font></li>
+          <li lang="latex">$$k \ | \ 2 \times 10^{8} adds \ | \  1s$$</li>
           <li><font size="3">datasize | 1TB | simple add | 12min</font></li>
         </ul>
       </div>
@@ -83,15 +83,15 @@
 
   <slide class="no6">
     <hgroup>
-      <h2>Case1</h2>
+      <h2>Real Case1</h2>
     </hgroup>
     <article>
-      <div class="build fade">
+      <div>
         <p lang="latex">$$ d_{1} + d_{2} + d_{3} + d_{4} + d_{5} + d_{6}  ... + d_{k-1} + d_{k} $$</p>
-        <ul>
+        <ul class="build fade">
           <li><font size="3">d | float array</font></li>
           <li><font size="3">+ | user-defined func | 2000 cycles</font></li>
-          <li><font size="3">k | 0.5*10^{7} +s</font></li>
+          <li lang="latex">k \ | \  0.5 \times 10^{7} +s</li>
           <li><font size="3">datasize | 1TB | user-defined func | 8.5h</font></li>
         </ul>
       </div>
@@ -100,14 +100,14 @@
 
   <slide class="no7">
     <hgroup>
-      <h2>Case2</h2>
+      <h2>Real Case2</h2>
     </hgroup>
     <article>
       <div class="build fade">
         <p lang="latex">$$ d_{1} + d_{2} + d_{3} + d_{4} + d_{5} +  ... + d_{k-1} + d_{k} $$</p>
         <ul>
-          <li lang="latex" size="3">$$+ | \cap \cup $$</li>
-          <li><font size="3">bang</font></li>
+          <li lang="latex">$$+ \ | \  \cap \cup \ like \ op $$</li>
+          <li><font size="3">memory explosion</font></li>
         </ul>
       </div>
     </article>
@@ -119,13 +119,13 @@
     </hgroup>
     <article>
       <ul>
-        <li>Optimization != distributed computing
-          <ul>
-            <br><li lang="latex" size="3">$$Efficiency \rightarrow qualitative(Case1)$$</li>
-            <br><li lang="latex" size="3">$$Distributed memory \rightarrow qualitative(Case2)$$</li>
+        <li>optimization x parallel computing
+          <ul class="build fade">
+            <li><font size="3">efficiency makes qualitative</font></li>
+            <li><font size="3">distributed memory makes qualitative</font></li>
+            <li><font size="3">parallel computing make things work</font></li>
           </ul>
-        </li><br><br>
-        <li>Distributed/Parallel computing make things work</li>
+        </li>
       </ul>
     </article>
   </slide>
@@ -137,7 +137,7 @@
     <article>
       <br>
       <p>Motivation</p><br>
-      <p><b><font color="orange">A little history</font></b></p><br>
+      <p><font color="green">A little history</font></p><br>
       <p>Concept/Terminology</p><br>
       <p>Paradigm</p>
       <br>
@@ -145,6 +145,17 @@
   </slide>
 
   <slide class="no10">
+    <aside class="note">
+      <section>
+        <ul>
+          <li>
+            <img src="images/a.png" class="reflect" alt="Description" title="Description">
+            <img src="images/b.png" alt="Description" title="Description">
+            <img src="images/c.png" alt="Description" title="Description">
+          </li>
+        </ul>
+      </section>
+    </aside>
     <hgroup>
       <h2>A little history</h2>
     </hgroup>
@@ -162,12 +173,12 @@
             <li><font size="3">1980's-2000 NUMA/MPP(Massive Parallel Processing) | 100+ cpus</font></li>
             <li><font size="3">2005-  hybrid system | accelerated system with GPU/MIC | 1000+ cpus</font></li>
             <li><font size="3">2003- google | commercial cluster | across the room</font></li>
-            <li><font size="3">flat tree... | SC conf | DCN(hot research @MSR)</font></li>
+            <li><font size="3">flat tree etc | SC conf | DCN(hot research @MSR)</font></li>
             <li><font size="3">douban | single room | all connected</font></li>
           </ul>
         </li>
-        <li class="build fade">official line two
-          <ul>
+        <li>official line two
+          <ul  class="build fade">
             <li><font size="3">Intel | pipeline in core | multicore</font></li>
           </ul>
         </li>
@@ -183,7 +194,7 @@
       <br>
       <p>Motivation</p><br>
       <p>A little history</p><br>
-      <p><b><font color="orange">Concept/Terminology</font></b></p><br>
+      <p><font color="green">Concept/Terminology</font></p><br>
       <p>Paradigm</p>
       <br>
     </article>
@@ -194,16 +205,15 @@
       <h2>How</h2>
     </hgroup>
     <article>
-      <div class="build fade">
+      <div>
         <p>A simple example</p>
         <p lang="latex">$$ d_{1} + d_{2} + d_{3} + d_{4} + d_{5} +  ... + d_{k-1} + d_{k} $$</p>
         <ul class="build fade">
           <li><font size="3">suppose k a power of 2</font></li>
           <li><font size="3">Algorithms?</font></li>
           <li><font size="3">solution1: master node</font></li>
-          <li><font size="3">solution2: binary tree | node: value and edge: communication</font></li>
+          <li><font size="3">solution2: binary tree | node(value) edge(communication)</font></li>
         </ul>
-        <p>wait...</p>
       </div>
     </article>
   </slide>
@@ -220,7 +230,7 @@
           <li><font size="3">parallel calc | simultaneous</font><li>
           <li><font size="3">sync | communication</font><li>
           <li><font size="3">(all)reduce</font></li>
-          <li><font size="3">Problems?</font></li>
+          <li><font size="3">bug?</font></li>
           <li><font size="3">consistency | small dataset to verify</font></li>
         </ul>
       </div>
@@ -253,14 +263,16 @@
     </hgroup>
     <article>
       <div>
-        <p>A better model(calc + comm)</p>
+        <p>A better model (calc_cost + comm_cost)</p>
           <ul class="build fade">
             <li><font size="3"></font><li>
             <li lang="latex">$$\alpha + M\beta \ | \   10^{-3}+M10^{-8} \ | \ simplest \ communication \ model$$</li>
             <li lang="latex">$$solution1 \ | \ \frac{T(1)}{p} + (\beta\frac{M}{p} + \alpha) (p - 1) \ | \ :($$</li>
             <li lang="latex">$$solution2 \ | \ \frac{T(1)}{p} + (\beta\frac{M}{p} + \alpha) (logp) \ | \ :)$$</li>
             <li lang="latex">$$general \ | \ pT(p) = C + C_{1}(p - 1) + C_{2} p (p - 1)$$</li>
-            <li lang="latex">$$C \ is \ portion \ can \ be \ paralleld, \ C_{1} \ is \ bandwidth-like \ cost, \ C_{2} \ is \ latancy$$</li>
+            <li lang="latex">$$C \ is \ portion \ can \ be \ paralleld$$</li> 
+            <li lang="latex">$$C_{1} \ is \ bandwidthsome \ cost$$</li>
+            <li lang="latex">$$C_{2} \ is \ latancy$$</li>
             <li><font size="3">package is important | 10MB is large message @douban(dpark) | reduce message cost(lantancy)</font></li>
             <li><font size="3">stagnation point | scalability ability</font></li>
           </ul>
@@ -276,10 +288,9 @@
       <div>
         <p>different partition leads to different communication</p>
           <ul class="build fade">
-            <li><font size="3">n x n grids | O(n*2) |  1D partition | 2D partition</font></li>
+            <li><font size="3">n x n grids | O(n*2) |  1D partition vs 2D partition</font></li>
             <li lang="latex">$$1D \ | \ O(np) \ | \ \frac{n^{2}}{Cnp} \Rightarrow n\  \sim \ cp \ | \ \frac{n^{2}}{p}=\frac{c^{2}p^{2}}{p} \ | \ c^{2}p$$</li>
             <li lang="latex">$$2D \ | \ O(\frac{n}{\sqrt{p}}p) \ | \ \frac{n^{2}}{Cn\sqrt{p}} \Rightarrow n\  \sim \ c\sqrt{p} \ | \ \frac{n^{2}}{p}=\frac{c^{2}p}{p} \ | \ c^{2}$$</li>
-            <li><font size="3">great</font></li>
           </ul>
       </div>
     </article>
@@ -314,19 +325,19 @@
       <pre class="prettyprint" data-lang="c++">
   // This is a c++ pseudo code.
   type parallel_load(...) {...} 
-  type sum(data, comm) {...}
+  type sum_calc(data, comm) {...}
   <b>float reduce(sum, comm) {
     float tmp = 0.0, result = sum; int cnt = comm.Get_size() - 1;
     if(comm.Get_rank() == 0) { 
-      while(cnt--) { MPI_Recv(tmp, from = ANY); result += tmp; } 
-    } else { MPI_Send(sum, to = 0); }
+      while(cnt--) { kiss_Recv(tmp, from = ANY); result += tmp; } 
+    } else { kiss_Send(sum, to = 0); }
     return result;
   }</b>
   int main(int argc, char *argv[]) {
-    MPI_Init(...); auto comm = MPI_COMM_WORLD;
+    kiss_Init(...);
     auto data = parallel_load('a.txt', comm);
-    auto local_sum = sum(data);
-    reduce(local_sum, comm); MPI_Finalize();
+    auto local_sum = sum_calc(data);
+    reduce(local_sum, comm); kiss_Finalize();
   }
 </pre>
     </article>
@@ -350,7 +361,7 @@
       <p>Motivation</p><br>
       <p>A little history</p><br>
       <p>Concept/Terminology</p><br>
-      <p><b><font color="orange">Paradigm</font></b></p>
+      <p><font color="green">Paradigm</font></p>
       <br>
     </article>
   </slide>
@@ -361,23 +372,36 @@
     </hgroup>
     <article>
      <div class="build fade">
-        <p><font size="3">simple but low level | no application/algorithm level abstraction | gernel use</font></p>
-        <p><font size="3">MPI_Init | MPI_Send/MPI_Recv | MPI_Reduce(we already implement one:) | MPI_Barrier | MPI_Bcast | ...</font></p>
-        <p><font size="3">to programmers | data distribution(partition+map) | communication | sync</font></p>
+        <p><font size="3">simple but low level | no algorithm level abstraction | gerneral</font></p>
+        <p><font size="3">MPI_Init</font></p>
+        <p><font size="3">MPI_Send/MPI_Recv</font></p>
+        <p><font size="3">MPI_Barrier</font></p>
+        <p><font size="3">MPI_Reduce(we already implement one | MPI_Bcast...</font></p>
+        <p><font size="3">to programmers:</font></p>
+        <p><font size="3">data distribution(partition + map)</font></p>
+        <p><font size="3">calc</font></p>
+        <p><font size="3">communication</font></p>
+        <p><font size="3">sync</font></p>
       </div>
     </article>
   </slide>
 
   <slide class="no22">
+    <aside class="note">
+      <section>
+        <ul>
+          <li>Say<a href="http://openmp.org/wp/whos-using-openmp">'missing you'</a>to changsheng</li>
+        </ul>
+      </section>
+    </aside>
     <hgroup>
       <h2>Openmp/Pthread</h2>
     </hgroup>
     <article>
      <div class="build fade">
-        <p>shared memory programming</p>
-        <p>openmp is based on pthread</p>
-        <p>openmp is mainly used for compute-intensive for-loop</p>
-        <p><a href="http://openmp.org/wp/whos-using-openmp">say 'missing you' to changsheng</a></p>
+        <p><font size="3">shared memory programming</font></p>
+        <p><font size="3">openmp based on pthread</font></p>
+        <p><font size="3">openmp used for compute-intensive forloop</font></p>
       </div>
     </article>
   </slide>
@@ -387,7 +411,7 @@
       <h2>Hybird MPI with Openmp</h2>
     </hgroup>
     <article class="build fade">
-      <p><font size="3">when | clusters with multicore-servers</font></p>
+      <p><font size="3">multicore-servers clusters</font></p>
       <p><font size="3">linear speedup is waiting for you</font></p>
     </article>
   </slide>  
@@ -397,11 +421,15 @@
       <h2>MapReduce</h2>
     </hgroup>
     <article class="build fade">
-      <p>lisp | google | Jeff Dean</p>
-      <p>parallel 'map' and 'reduce' calc | structured communication(I/O stream)</p>
-      <p>middle level framework</p>
-      <p><font size="3">mapreduce vs MPI | 'map'=linesplit + map | 'reduce' = reduce | no shuffle in MPI, so map in MPI is more difficult</font></p>
-      <p>well deploy | pool locality | model transfer cost</p>
+      <p><font size="3">lisp | google | Jeff Dean</font></p>
+      <p><font size="3">parallel 'map' and 'reduce' calc</font></p>
+      <p><font size="3">structured communication(I/O stream)</font></p>
+      <p><font size="3">middle level framework</font></p>
+      <p><font size="3">mapreduce vs MPI:</font></p>
+      <p><font size="3">'map'=linesplit + map</font></p>
+      <p><font size="3">'reduce' = reduce</font></p>
+      <p><font size="3">no shuffle in MPI | map in MPI is more difficult</font></p>
+      <p><font size="3">easy deploy | pool locality | model transfer</font></p>
     </article>
   </slide> 
 
@@ -441,9 +469,12 @@ def init(_):
       <h2>Spark/Dpark</h2>
     </hgroup>
     <article class="build fade">
-      <p>based on mesos | mesos is a better fork, fork</p>
-      <p>memory cached | lineage to make ft</p>
-      <p>high level class | code like serial precedure</p>
+      <p><font size="3">based on mesos | mesos is a better fork,fork(kiss)</font></p>
+      <p><font size="3">memory cached | lineage to make fault-tolerant(hang on)</font></p>
+      <p><font size="3">high level class</font></p>
+      <p><font size="3">serial code style</font></p>
+      <p><font size="3">to many apis</font></p>
+      <p><font size="3">hard for wide dependency application</font></p>
     </article>
   </slide>
 
@@ -452,9 +483,9 @@ def init(_):
       <h2>Why Distributed Framework?</h2>
     </hgroup>
     <article class="build fade">
-      <p>easy code | stay focus</p>
-      <p>distributed computational ability of cluster</p>      
-      <p>great property from different computing models</p>
+      <p><font size="3">easy code | stay focus on app</font></p>
+      <p><font size="3">distributed computational ability</font></p>      
+      <p><font size="3">great property from computing models</font></p>
     </article>
   </slide>
 
@@ -463,11 +494,13 @@ def init(_):
       <h2>More</h2>
     </hgroup>
     <article class="build fade">
-      <p>bsp</p>
-      <p>pregel</p>
-      <p>parasol</p>
-      <p>graphlab</p>
-      <p>...</p>
+      <p><font size="3">bsp</font></p>
+      <p><font size="3">hadoop(mapreduce)</font></p>
+      <p><font size="3">hama(pregel)</font></p>
+      <p><font size="3">piccolo</font></p>
+      <p><font size="3">parasol</font></p>
+      <p><font size="3">graphlab</font></p>
+      <p><font size="3">...</font></p>
     </article>
   </slide>
 
@@ -476,8 +509,10 @@ def init(_):
       <h2>Which one is better</h2>
     </hgroup>
     <article class="build fade">
-      <p>commercial cluster | GPU x | supercomputer x</p>
-      <p>mid level and low level framework with simple api | glue</p>
+      <p><font size="3">from low level to high level | implementation dependency</font></p>
+      <p><font size="3">commercial cluster | GPU x | supercomputer x</font></p>
+      <p><font size="3">mid level with simple api</font></p>
+      <p><font size="3">glue</font></p>
     </article>
   </slide>
 
@@ -492,10 +527,24 @@ def init(_):
 
   <slide class="no30">
     <hgroup>
-      <h2>An Interesting Problem</h2>
+      <h2>Simple Example Plus</h2>
     </hgroup>
     <article class="build fade">
-      <p></p>
+      <p>thinking parallel is not obvious sometimes</p>
+      <p>it is a challenging problem</p>
+      <p>it is widely used</p>
+    </article>
+  </slide>
+
+  <slide class="no31">
+    <hgroup>
+      <h2>Summarize</h2>
+    </hgroup>
+    <article class="build fade">
+      <p><font size="3">what is parallel computing</font></p>
+      <p><font size="3">what is distributed framework</font></p>
+      <p><font size="3">seriesII (end of Oct): bsp, pregel (in action)</font></p>
+      <p><font size="3">seriesIII (middle of Nov): parasol (how to build a demo distributed system)</font></p>
     </article>
   </slide>
 

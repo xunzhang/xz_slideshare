@@ -24,8 +24,8 @@ var SLIDE_CONFIG = {
   presenters: [{
     name: 'Wu Hong',
     company: 'Algorithm Engineer',
-    github: 'xunzhang',
-    douban: 'xunzhangthu',
+    github: '@xunzhang',
+    douban: '@xunzhangthu',
     mail: 'wuhong@douban.com'
   }]
 };
