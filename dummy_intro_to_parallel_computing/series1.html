@@ -1,11 +1,3 @@
-<!--
-Google IO 2012/2013 HTML5 Slide Template
-
-Authors: Eric Bidelman <ebidel@gmail.com>
-         Luke Mahé <lukem@google.com>
-
-URL: https://code.google.com/p/io-2012-slides
--->
 <!DOCTYPE html>
 <html>
 <head>
@@ -114,7 +106,7 @@ URL: https://code.google.com/p/io-2012-slides
       <div class="build fade">
         <p lang="latex">$$ d_{1} + d_{2} + d_{3} + d_{4} + d_{5} +  ... + d_{k-1} + d_{k} $$</p>
         <ul>
-          <li lang="latex" size="3">$$+ | \cap  or  \cup $$</li>
+          <li lang="latex" size="3">$$+ | \cap \cup $$</li>
           <li><font size="3">bang</font></li>
         </ul>
       </div>
@@ -129,8 +121,8 @@ URL: https://code.google.com/p/io-2012-slides
       <ul>
         <li>Optimization != distributed computing
           <ul>
-            <br><li lang="latex" size="3">$$Efficiency \longrightarrow qualitative(Case1)$$</li>
-            <br><li lang="latex" size="3">$$Distributed memory \longrightarrow qualitative(Case2)$$</li>
+            <br><li lang="latex" size="3">$$Efficiency \rightarrow qualitative(Case1)$$</li>
+            <br><li lang="latex" size="3">$$Distributed memory \rightarrow qualitative(Case2)$$</li>
           </ul>
         </li><br><br>
         <li>Distributed/Parallel computing make things work</li>
@@ -159,24 +151,24 @@ URL: https://code.google.com/p/io-2012-slides
     <article>
       <ul>
         <li>unofficial
-          <ul>
-            <li>human being | neurons in brain</li>
-          </ul>
-        </li>
-        <li>official line1
           <ul class="build fade">
-            <li size="0.5">1960's vector machine</li>
-            <li size="0.5">1970's | SMP(Symmetric Multiprocessor) | 10- cpus</li>
-            <li size="0.5">1980's-2000 NUMA/MPP(Massive Parallel Processing) | 100+ cpus</li>
-            <li size="0.5">2005-  hybrid system | accelerated system with GPU/MIC | 1000+ cpus</li>
-            <li size="0.5">2003- google | commercial cluster | across the room</li>
-            <li size="0.5">flat tree... | SC conf | DCN(hot research @MSR)</li>
-            <li size="0.5">douban | single room | all connected</li>
+            <li><font size="3">human being | neurons in brain</font></li>
           </ul>
         </li>
-        <li class="build fade">official line2
+        <li>official line one
+          <ul class="build fade">
+            <li><font size="3">1960's vector machine</font></li>
+            <li><font size="3">1970's | SMP(Symmetric Multiprocessor) | 10- cpus</font></li>
+            <li><font size="3">1980's-2000 NUMA/MPP(Massive Parallel Processing) | 100+ cpus</font></li>
+            <li><font size="3">2005-  hybrid system | accelerated system with GPU/MIC | 1000+ cpus</font></li>
+            <li><font size="3">2003- google | commercial cluster | across the room</font></li>
+            <li><font size="3">flat tree... | SC conf | DCN(hot research @MSR)</font></li>
+            <li><font size="3">douban | single room | all connected</font></li>
+          </ul>
+        </li>
+        <li class="build fade">official line two
           <ul>
-            <li size="0.5">intel | pipeline in core | multicore</li>
+            <li><font size="3">Intel | pipeline in core | multicore</font></li>
           </ul>
         </li>
       </ul>
@@ -203,102 +195,307 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
     <article>
       <div class="build fade">
-        <p>A great example</p>
+        <p>A simple example</p>
         <p lang="latex">$$ d_{1} + d_{2} + d_{3} + d_{4} + d_{5} +  ... + d_{k-1} + d_{k} $$</p>
         <ul class="build fade">
           <li><font size="3">suppose k a power of 2</font></li>
-          <li><font size="3">binary tree | node:value and edge:communication</font></li>
-          <li><font size="3">reduce</font></li>
+          <li><font size="3">Algorithms?</font></li>
+          <li><font size="3">solution1: master node</font></li>
+          <li><font size="3">solution2: binary tree | node: value and edge: communication</font></li>
         </ul>
-        <p>Problems?</p>
+        <p>wait...</p>
       </div>
     </article>
   </slide>
-
+  
   <slide class="no13">
     <hgroup>
       <h2>Move on</h2>
     </hgroup>
     <article>
-      <div class="build fade">
+      <div>
         <p lang="latex">$$ d_{1} + d_{2} + d_{3} + d_{4} + d_{5} +  ... + d_{k-1} + d_{k} $$</p>
-        <ul>
-          <li>suppose k a power of 2</li>
-          <li><font size="3">binary tree | node:value and edge:communication</font></li>
-          <li size="3">reduce<li>
+        <ul class="build fade">
+          <li><font size="3">partition | map | data distribution | load balance</font></li>
+          <li><font size="3">parallel calc | simultaneous</font><li>
+          <li><font size="3">sync | communication</font><li>
+          <li><font size="3">(all)reduce</font></li>
+          <li><font size="3">Problems?</font></li>
+          <li><font size="3">consistency | small dataset to verify</font></li>
         </ul>
       </div>
     </article>
   </slide>
 
-  <slide>
+  <slide class="no14">
     <hgroup>
-      <h2>Slide with (Smaller Font)</h2>
-    </hgroup>
-    <article class="smaller">
-      <ul>
-        <li>All <a href="http://google.com">links</a> open in new tabs.</li>
-        <li>To change that this, add <code>target="_self"</code> to the link.</li>
-      </ul>
-    </article>
-  </slide>
-
-  <slide hidden>
-    Hidden slides are left out of the presentation.
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Code Slide (with Subtitle Placeholder)</h2>
-      <h3>Subtitle Placeholder</h3>
+      <h2>Cost Model</h2>
     </hgroup>
     <article>
-      <p>Press 'h' to highlight important sections of code (wrapped in <code>&lt;b&gt;</code>).</p>
-      <pre class="prettyprint" data-lang="javascript">
-&lt;script type='text/javascript'&gt;
-  // Say hello world until the user starts questioning
-  // the meaningfulness of their existence.
-  function helloWorld(world) {
-    <b>for (var i = 42; --i &gt;= 0;) {
-      alert('Hello ' + String(world));
-    }</b>
+      <div>
+        <p>Amdahl's law</p>
+          <ul class="build fade">
+            <li><font size="3">r | portion which can be parallelized</font><li>
+            <li lang="latex">$$T(p) = (\frac{r}{p} + 1 - r) T(1)$$<li>
+            <li lang="latex">$$r \rightarrow 1 \ | \ T(p) \rightarrow \frac{r}{p} \ | \ px(linear) \ | \ :)$$</li>
+            <li lang="latex">$$r \rightarrow 0.5 \  | \ T(p) \rightarrow  (0.5 + \frac{0.5}{p}) T(1) \ | \ p \rightarrow \infty \ | \ 2x \ | \  :($$</li>
+            <li><font size="3">r is important | critical path | data/procedure level</font></li>
+            <li><font size="3">scalability | data | process unit | time</font></li>
+            <li><font size="3">no communication cost | toooooo ideal</font></li>
+          </ul>
+      </div>
+    </article>
+  </slide>
+
+ <slide class="no15">
+    <hgroup>
+      <h2>Cost Model (Cond)</h2>
+    </hgroup>
+    <article>
+      <div>
+        <p>A better model(calc + comm)</p>
+          <ul class="build fade">
+            <li><font size="3"></font><li>
+            <li lang="latex">$$\alpha + M\beta \ | \   10^{-3}+M10^{-8} \ | \ simplest \ communication \ model$$</li>
+            <li lang="latex">$$solution1 \ | \ \frac{T(1)}{p} + (\beta\frac{M}{p} + \alpha) (p - 1) \ | \ :($$</li>
+            <li lang="latex">$$solution2 \ | \ \frac{T(1)}{p} + (\beta\frac{M}{p} + \alpha) (logp) \ | \ :)$$</li>
+            <li lang="latex">$$general \ | \ pT(p) = C + C_{1}(p - 1) + C_{2} p (p - 1)$$</li>
+            <li lang="latex">$$C \ is \ portion \ can \ be \ paralleld, \ C_{1} \ is \ bandwidth-like \ cost, \ C_{2} \ is \ latancy$$</li>
+            <li><font size="3">package is important | 10MB is large message @douban(dpark) | reduce message cost(lantancy)</font></li>
+            <li><font size="3">stagnation point | scalability ability</font></li>
+          </ul>
+      </div>
+    </article>
+  </slide>
+
+  <slide class="no16">
+    <hgroup>
+      <h2>More of Scalability</h2>
+    </hgroup>
+    <article>
+      <div>
+        <p>different partition leads to different communication</p>
+          <ul class="build fade">
+            <li><font size="3">n x n grids | O(n*2) |  1D partition | 2D partition</font></li>
+            <li lang="latex">$$1D \ | \ O(np) \ | \ \frac{n^{2}}{Cnp} \Rightarrow n\  \sim \ cp \ | \ \frac{n^{2}}{p}=\frac{c^{2}p^{2}}{p} \ | \ c^{2}p$$</li>
+            <li lang="latex">$$2D \ | \ O(\frac{n}{\sqrt{p}}p) \ | \ \frac{n^{2}}{Cn\sqrt{p}} \Rightarrow n\  \sim \ c\sqrt{p} \ | \ \frac{n^{2}}{p}=\frac{c^{2}p}{p} \ | \ c^{2}$$</li>
+            <li><font size="3">great</font></li>
+          </ul>
+      </div>
+    </article>
+  </slide>
+
+  <slide class="no17">
+    <hgroup>
+      <h2>Implementation</h2>
+    </hgroup>
+    <article>
+     <div>
+        <p>Still the simple example</p>
+        <p lang="latex">$$ d_{1} + d_{2} + d_{3} + d_{4} + d_{5} +  ... + d_{k-1} + d_{k} $$</p>
+        <ul class="build fade">
+          <li><font size="3">fork,fork | map</font></li>
+          <li><font size="3">SIMD(Single Instruction Multiple Data) | if(rank = ?) | calc</font></li>
+          <li><font size="3">Send/Recv | communication</font></li>
+          <li><font size="3">barrier | sync</font></li>
+          <li><font size="3">Yes, we design a distributed framework</font></li>
+          <li><font size="3">That's almost enough, trust me</font></li>
+        </ul>
+      </div>
+    </article>
+  </slide>
+
+  <slide class="no18">
+    <hgroup>
+      <h2>Pairwise Summation (Solution1)</h2>
+      <h3 lang="latex">$$ d_{1} + d_{2} + d_{3} + d_{4} + d_{5} +  ... + d_{k-1} + d_{k} $$</h3>
+    </hgroup>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="c++">
+  // This is a c++ pseudo code.
+  type parallel_load(...) {...} 
+  type sum(data, comm) {...}
+  <b>float reduce(sum, comm) {
+    float tmp = 0.0, result = sum; int cnt = comm.Get_size() - 1;
+    if(comm.Get_rank() == 0) { 
+      while(cnt--) { MPI_Recv(tmp, from = ANY); result += tmp; } 
+    } else { MPI_Send(sum, to = 0); }
+    return result;
+  }</b>
+  int main(int argc, char *argv[]) {
+    MPI_Init(...); auto comm = MPI_COMM_WORLD;
+    auto data = parallel_load('a.txt', comm);
+    auto local_sum = sum(data);
+    reduce(local_sum, comm); MPI_Finalize();
   }
-&lt;/script&gt;
 </pre>
     </article>
   </slide>
 
-  <slide>
+  <slide class="19">
     <hgroup>
-      <h2>Code Slide (Smaller Font)</h2>
+      <h2>Pairwise Summation (Solution2)</h2>
+    </hgroup>
+    <article>
+      <iframe data-src="http://code.dapps.douban.com/wuhong/mpireduce/blob/master/src/treereduce.c"></iframe>
+    </article>
+  </slide>
+
+  <slide class="no20">
+    <hgroup>
+      <h2>Outline</h2>
+    </hgroup>
+    <article>
+      <br>
+      <p>Motivation</p><br>
+      <p>A little history</p><br>
+      <p>Concept/Terminology</p><br>
+      <p><b><font color="orange">Paradigm</font></b></p>
+      <br>
+    </article>
+  </slide>
+
+  <slide class="no21">
+    <hgroup>
+      <h2>MPI/RPC</h2>
+    </hgroup>
+    <article>
+     <div class="build fade">
+        <p><font size="3">simple but low level | no application/algorithm level abstraction | gernel use</font></p>
+        <p><font size="3">MPI_Init | MPI_Send/MPI_Recv | MPI_Reduce(we already implement one:) | MPI_Barrier | MPI_Bcast | ...</font></p>
+        <p><font size="3">to programmers | data distribution(partition+map) | communication | sync</font></p>
+      </div>
+    </article>
+  </slide>
+
+  <slide class="no22">
+    <hgroup>
+      <h2>Openmp/Pthread</h2>
+    </hgroup>
+    <article>
+     <div class="build fade">
+        <p>shared memory programming</p>
+        <p>openmp is based on pthread</p>
+        <p>openmp is mainly used for compute-intensive for-loop</p>
+        <p><a href="http://openmp.org/wp/whos-using-openmp">say 'missing you' to changsheng</a></p>
+      </div>
+    </article>
+  </slide>
+
+  <slide class="no23">
+    <hgroup>
+      <h2>Hybird MPI with Openmp</h2>
+    </hgroup>
+    <article class="build fade">
+      <p><font size="3">when | clusters with multicore-servers</font></p>
+      <p><font size="3">linear speedup is waiting for you</font></p>
+    </article>
+  </slide>  
+
+  <slide class="no24">
+    <hgroup>
+      <h2>MapReduce</h2>
+    </hgroup>
+    <article class="build fade">
+      <p>lisp | google | Jeff Dean</p>
+      <p>parallel 'map' and 'reduce' calc | structured communication(I/O stream)</p>
+      <p>middle level framework</p>
+      <p><font size="3">mapreduce vs MPI | 'map'=linesplit + map | 'reduce' = reduce | no shuffle in MPI, so map in MPI is more difficult</font></p>
+      <p>well deploy | pool locality | model transfer cost</p>
+    </article>
+  </slide> 
+
+  <slide class="no25">
+    <hgroup>
+      <h2>MapReduce in Action</h2>
     </hgroup>
     <article class="smaller">
-      <pre class="prettyprint" data-lang="javascript">
-// Say hello world until the user starts questioning
-// the meaningfulness of their existence.
-function helloWorld(world) {
-  for (var i = 42; --i &gt;= 0;) {
-    alert('Hello ' + String(world));
-  }
-}
+      <pre class="prettyprint" data-lang="python">
+// wordcount with douban's mapreduce framework
+delimiter = re.compile('[^-a-zA-Z0-9_]')
+
+<b>def wc_map(line):
+    return [(w, 1) for w in delimiter.split(line) if w]</b>
+
+<b>def wc_reduce(a, b): 
+    return int(a) + int(b)</b>
+
+def sort_key(a):
+    return a.split('\t', 1)[0]
+
+def sort_kcmp(a, b): 
+    return -cmp(int(a), int(b))
+
+def sort_vcmp(a, b): 
+    return -cmp(int(a.split('\t', 1)[0]), int(b.split('\t', 1)[0]))
+
+def init(_):
+    io.map_reduce(wc_map, wc_reduce, lambda w, c: c + "\t" + w)
+    io.sort(sort_key, sort_kcmp, sort_vcmp)
 </pre>
-<pre class="prettyprint" data-lang="css">
-&lt;style&gt;
-  p { color: pink }
-  b { color: blue }
-&lt;/style&gt;
-</pre>
-<pre class="prettyprint" data-lang="html">
-&lt;!DOCTYPE html>
-&lt;html>
-&lt;head>
-  &lt;title>My Awesome Page&lt;/title>
-&lt;/head>
-&lt;body>
-  &lt;p&gt;Hello world&lt;/p&gt;
-&lt;body>
-&lt;/html>
-</pre>
+    </article>
+  </slide>
+
+  <slide class="no26">
+    <hgroup>
+      <h2>Spark/Dpark</h2>
+    </hgroup>
+    <article class="build fade">
+      <p>based on mesos | mesos is a better fork, fork</p>
+      <p>memory cached | lineage to make ft</p>
+      <p>high level class | code like serial precedure</p>
+    </article>
+  </slide>
+
+  <slide class="no27">
+    <hgroup>
+      <h2>Why Distributed Framework?</h2>
+    </hgroup>
+    <article class="build fade">
+      <p>easy code | stay focus</p>
+      <p>distributed computational ability of cluster</p>      
+      <p>great property from different computing models</p>
+    </article>
+  </slide>
+
+  <slide class="no28">
+    <hgroup>
+      <h2>More</h2>
+    </hgroup>
+    <article class="build fade">
+      <p>bsp</p>
+      <p>pregel</p>
+      <p>parasol</p>
+      <p>graphlab</p>
+      <p>...</p>
+    </article>
+  </slide>
+
+  <slide class="no29">
+    <hgroup>
+      <h2>Which one is better</h2>
+    </hgroup>
+    <article class="build fade">
+      <p>commercial cluster | GPU x | supercomputer x</p>
+      <p>mid level and low level framework with simple api | glue</p>
+    </article>
+  </slide>
+
+  <slide class="no29">
+    <hgroup>
+      <h2>Which we can do</h2>
+    </hgroup>
+    <article class="build fade">
+      <p>discussion...</p>
+    </article>
+  </slide>
+
+  <slide class="no30">
+    <hgroup>
+      <h2>An Interesting Problem</h2>
+    </hgroup>
+    <article class="build fade">
+      <p></p>
     </article>
   </slide>
 
@@ -502,21 +699,6 @@ function helloWorld(world) {
         Name<br>
         Company
       </div>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Slide with Iframe</h2>
-    </hgroup>
-    <article>
-      <iframe data-src="http://www.google.com/doodle4google/resources/history.html"></iframe>
-    </article>
-  </slide>
-
-  <slide>
-    <article>
-      <iframe data-src="http://www.google.com/doodle4google/resources/history.html"></iframe>
     </article>
   </slide>
 

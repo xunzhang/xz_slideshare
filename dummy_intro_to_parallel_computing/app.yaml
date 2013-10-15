@@ -1,4 +1,4 @@
-application: my-io-talk
+application: dummy intro to parallel computing
 version: 1
 runtime: python27
 api_version: 1
@@ -6,8 +6,8 @@ threadsafe: yes
 
 handlers:
 - url: /
-  static_files: template.html
-  upload: template\.html
+  static_files: series1.html
+  upload: series1\.html
 
 - url: /slide_config\.js
   static_files: slide_config.js
