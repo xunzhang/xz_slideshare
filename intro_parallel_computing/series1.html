@@ -83,7 +83,7 @@
 
   <slide class="no6">
     <hgroup>
-      <h2>Real Case1</h2>
+      <h2>Case1</h2>
     </hgroup>
     <article>
       <div>
@@ -100,7 +100,7 @@
 
   <slide class="no7">
     <hgroup>
-      <h2>Real Case2</h2>
+      <h2>Case2</h2>
     </hgroup>
     <article>
       <div class="build fade">
@@ -171,19 +171,15 @@
             <li><font size="3">1960's vector machine</font></li>
             <li><font size="3">1970's | SMP(Symmetric Multiprocessor) | 10- cpus</font></li>
             <li><font size="3">1980's-2000 NUMA/MPP(Massive Parallel Processing) | 100+ cpus</font></li>
+            <li><font size="3">2000- Intel | pipeline in core | multicore</font></li>
+            <li><font size="3">2005-  hybrid system | accelerated system with GPU/MIC | 1000+ cpus | peak?</font></li>
           </ul>
         </li>
         <li>line2
           <ul  class="build fade">
-            <li><font size="3">Intel | pipeline in core | multicore</font></li>
-            <li><font size="3">2005-  hybrid system | accelerated system with GPU/MIC | 1000+ cpus | peak?</font></li>
-            <li><font size="3">2007- flat tree etc | SC conf | DCN(hot research @MSR)</font></li>
-          </ul>
-        </li>
-        <li>line3
-          <ul  class="build fade">
             <li><font size="3">2000- google | commercial cluster | distributed systems to make use of servers | across the room | paxos</font></li>
-            <li><font size="3">mapreduce | lots of computation frameworks</font></li>
+            <li><font size="3">flat tree, cubic etc | SC conf | DCN(hot research @MSR)</font></li>
+            <li><font size="3">mapreduce | lots of computational frameworks</font></li>
             <li><font size="3">douban | single room | all connected</font></li>
           </ul>
         </li>
@@ -427,14 +423,14 @@
     </hgroup>
     <article class="build fade">
       <p><font size="3">lisp | google | Jeff Dean</font></p>
-      <p><font size="3">parallel 'map' and 'reduce' calc</font></p>
-      <p><font size="3">structured communication(I/O stream)</font></p>
+      <p><font size="3">parallel 'map' and 'reduce' calc | key-value</font></p>
+      <p><font size="3">structured communication(disk I/O stream)</font></p>
       <p><font size="3">middle level framework</font></p>
       <p><font size="3">mapreduce vs MPI:</font></p>
       <p><font size="3">'map'=linesplit + map</font></p>
       <p><font size="3">'reduce' = reduce</font></p>
-      <p><font size="3">no shuffle in MPI | map in MPI is more difficult</font></p>
-      <p><font size="3">easy deploy | pool locality | model transfer</font></p>
+      <p><font size="3">no shuffle in MPI | partition in MPI is more difficult</font></p>
+      <p><font size="3">easy deploy | pool locality | model transfer | job</font></p>
     </article>
   </slide> 
 
@@ -485,7 +481,7 @@ def init(_):
 
   <slide class="no27">
     <hgroup>
-      <h2>Why Distributed Framework?</h2>
+      <h2>Why Distributed Computational Framework?</h2>
     </hgroup>
     <article class="build fade">
       <p><font size="3">easy code | stay focus on app</font></p>
@@ -500,8 +496,8 @@ def init(_):
       <h2>More</h2>
     </hgroup>
     <article class="build fade">
-      <p><font size="3">bsp</font></p>
       <p><font size="3">hadoop(mapreduce)</font></p>
+      <p><font size="3">bsp</font></p>
       <p><font size="3">hama(pregel)</font></p>
       <p><font size="3">piccolo</font></p>
       <p><font size="3">parasol</font></p>
@@ -518,7 +514,7 @@ def init(_):
       <p><font size="3">from low level to high level | implementation dependency</font></p>
       <p><font size="3">commercial cluster | GPU x | supercomputer x</font></p>
       <p><font size="3">mid-low level with simple api | general</font></p>
-      <p><font size="3">glue | husband</font></p>
+      <p><font size="3">glue | good husband</font></p>
     </article>
   </slide>
 
@@ -553,7 +549,7 @@ def init(_):
       <p lang="latex">$$summator \ | \ a_{3}a_{2}a_{1}a_{0} + b_{3}b_{2}b_{1}b_{0}$$</p>
       <p><font size="3">fibonacci seqs</font></p>
       <p><font size="3">...</font></p>
-      <p><font size="3">great | all recursion pattern algo | seq2parallel</font></p>
+      <p><font size="3">all recursion pattern algos | seems seq2parallel</font></p>
     </article>
   </slide>
 
@@ -563,12 +559,12 @@ def init(_):
     </hgroup>
     <article class="build fade">
       <p lang="latex">$$ d_{1} + d_{2} + d_{3} + d_{4} + d_{5} +  ... + d_{k-1} + d_{k} \ | \ a \ great \ example$$</p>
-      <p><font size="3">optimization problems | + | iterater | serial</font></p>
+      <p><font size="3">optimization problems | + | iterater | serial | challenge</font></p>
       <p><font size="3">why (motivation)</font></p>     
       <p><font size="3">a little history</font></p>
       <p><font size="3">what (is parallel computing)</font></p>     
       <p><font size="3">How (kiss)</font></p>     
-      <p><font size="3">what (is distributed framework)</font></p>
+      <p><font size="3">what (is distributed computational framework)</font></p>
       <p><font size="3" color="green">seriesII (end of Oct): bsp, pregel (in action)</font></p>
       <p><font size="3" color="green">seriesIII (middle of Nov): parasol (how to build a demo distributed system)</font></p>
     </article>
