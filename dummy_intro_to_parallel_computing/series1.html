@@ -121,9 +121,9 @@
       <ul>
         <li>optimization x parallel computing
           <ul class="build fade">
-            <li><font size="3">efficiency makes qualitative</font></li>
-            <li><font size="3">distributed memory makes qualitative</font></li>
-            <li><font size="3">parallel computing make things work</font></li>
+            <li><font size="3">efficiency makes qualitative | life is limit</font></li>
+            <li><font size="3">distributed memory makes qualitative | enough dataset?</font></li>
+            <li><font size="3">parallel computing make things happen</font></li>
           </ul>
         </li>
       </ul>
@@ -278,7 +278,7 @@
             <li lang="latex">$$C \ is \ portion \ can \ be \ paralleld$$</li> 
             <li lang="latex">$$C_{1} \ is \ bandwidthsome \ cost$$</li>
             <li lang="latex">$$C_{2} \ is \ latancy$$</li>
-            <li><font size="3">package is important | 10MB is large message @douban(dpark) | reduce message cost(lantancy)</font></li>
+            <li><font size="3">pack is important | 10MB is large message @douban(dpark) | reduce message cost(lantancy)</font></li>
             <li><font size="3">stagnation point | scalability ability</font></li>
           </ul>
       </div>
@@ -293,7 +293,7 @@
       <div>
         <p>different partition leads to different communication</p>
           <ul class="build fade">
-            <li><font size="3">n x n grids | O(n*2) |  1D partition vs 2D partition</font></li>
+            <li><font size="3">2D(trick concept) data | n x n grids | O(n*2) |  1D partition vs 2D partition</font></li>
             <li lang="latex">$$1D \ | \ O(np) \ | \ \frac{n^{2}}{Cnp} \Rightarrow n\  \sim \ cp \ | \ \frac{n^{2}}{p}=\frac{c^{2}p^{2}}{p} \ | \ c^{2}p$$</li>
             <li lang="latex">$$2D \ | \ O(\frac{n}{\sqrt{p}}p) \ | \ \frac{n^{2}}{Cn\sqrt{p}} \Rightarrow n\  \sim \ c\sqrt{p} \ | \ \frac{n^{2}}{p}=\frac{c^{2}p}{p} \ | \ c^{2}$$</li>
           </ul>
@@ -314,8 +314,8 @@
           <li><font size="3">SIMD(Single Instruction Multiple Data) | if(rank = ?) | calc</font></li>
           <li><font size="3">Send/Recv | communication</font></li>
           <li><font size="3">barrier | sync</font></li>
-          <li><font size="3">Yes, we design a distributed framework</font></li>
-          <li><font size="3">That's almost enough, trust me</font></li>
+          <li><font size="3">y, we design a distributed framework | kiss</font></li>
+          <li><font size="3">that's almost enough, trust me</font></li>
         </ul>
       </div>
     </article>
@@ -517,14 +517,14 @@ def init(_):
     <article class="build fade">
       <p><font size="3">from low level to high level | implementation dependency</font></p>
       <p><font size="3">commercial cluster | GPU x | supercomputer x</font></p>
-      <p><font size="3">mid level with simple api</font></p>
-      <p><font size="3">glue</font></p>
+      <p><font size="3">mid-low level with simple api | general</font></p>
+      <p><font size="3">glue | husband</font></p>
     </article>
   </slide>
 
   <slide class="no29">
     <hgroup>
-      <h2>Which we can do</h2>
+      <h2>What we can do</h2>
     </hgroup>
     <article class="build fade">
       <p>discussion...</p>
@@ -533,227 +533,44 @@ def init(_):
 
   <slide class="no30">
     <hgroup>
-      <h2>Simple Example Plus</h2>
+      <h2>Simple Summation Plus</h2>
     </hgroup>
     <article class="build fade">
-      <p>thinking parallel is not obvious sometimes</p>
-      <p>it is a challenging problem</p>
-      <p>it is widely used</p>
+      <p><font size="3">parallel is not obvious sometimes</font></p>
+      <p><font size="3">fibonacci sequence | n-th | prefix</font></p>
+      <p><font size="3">thinking...</font></p>
     </article>
   </slide>
 
   <slide class="no31">
     <hgroup>
+      <h2>Simple Summation Plus (Cond)</h2>
+    </hgroup>
+    <article class="build fade">
+      <p><font size="3">tree-reduce-like-process</font></p>
+      <p><font size="3">segmented scan | [1 2 3 4 5 6 7 8 9 10] [1 0 0 0 10 1 10 1]: [1 3 6 10 5 11 7 8 17 10 ] </font></p>
+      <p lang="latex">$$matrix \ inversion(Csanky) \ | \ A^{-1} = (A^{n-1} + c_{1}A^{n-2} + ... + c_{n-1}) / (-1/c_{n})$$</p>
+      <p lang="latex">$$summator \ | \ a_{3}a_{2}a_{1}a_{0} + b_{3}b_{2}b_{1}b_{0}$$</p>
+      <p><font size="3">fibonacci seqs</font></p>
+      <p><font size="3">...</font></p>
+      <p><font size="3">great | all recursion pattern algo | seq2parallel</font></p>
+    </article>
+  </slide>
+
+  <slide class="no32">
+    <hgroup>
       <h2>Summarize</h2>
     </hgroup>
     <article class="build fade">
-      <p><font size="3">what is parallel computing</font></p>
-      <p><font size="3">what is distributed framework</font></p>
-      <p><font size="3">seriesII (end of Oct): bsp, pregel (in action)</font></p>
-      <p><font size="3">seriesIII (middle of Nov): parasol (how to build a demo distributed system)</font></p>
-    </article>
-  </slide>
-
-  <slide>
-    <aside class="note">
-      <section>
-        <ul>
-          <li>Point I wanted to make #1</li>
-          <li>Point I wanted to make #2</li>
-          <li>Point I wanted to make #3</li>
-          <li>Example <a href="#">link</a> in notes.</li>
-        </ul>
-        <p><b>Remember to say this tag line!</b></p>
-      </section>
-    </aside>
-    <hgroup>
-      <h2>Slide with Speaker Notes</h2>
-    </hgroup>
-    <article>
-      <p>Press 'p' to toggle speaker notes.</p>
-    </article>
-  </slide>
-
-  <slide>
-    <aside class="note">
-      <section>
-        <ul>
-          <li>See this amazing link: <a href="http://www.google.com">link</a>.</li>
-        </ul>
-        <p><b>Remember to say this tag line!</b></p>
-      </section>
-    </aside>
-    <hgroup>
-      <h2>Presenter Mode</h2>
-    </hgroup>
-    <article>
-      <p>Add <code><a href="?presentme=true" target="_self">?presentme=true</a></code> to the URL to enabled presenter mode.
-      This setting is sticky, meaning refreshing the page will persist presenter
-      mode.</p>
-      <p>Hit <code><a href="?presentme=false" target="_self">?presentme=false</a></code> to disable presenter mode.</p>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Slide with Image</h2>
-    </hgroup>
-    <article>
-      <img src="images/chart.png" class="reflect" alt="Description" title="Description">
-      <footer class="source">source: place source info here</footer>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Slide with Image (Centered horz/vert)</h2>
-    </hgroup>
-    <article class="flexbox vcenter">
-      <img src="images/barchart.png" alt="Description" title="Description">
-      <footer class="source">source: place source info here</footer>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Table Option A</h2>
-      <h3>Subtitle Placeholder</h3>
-    </hgroup>
-    <article>
-      <table>
-        <tr>
-          <th></th><th>Column 1</th><th>Column 2</th><th>Column 3</th><th>Column 4</th>
-        </tr>
-        <tr>
-          <td>Row 1</td><td>placeholder</td><td class="highlight">placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 2</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 3</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 4</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 5</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-      </table>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Table Option A (Smaller Text)</h2>
-      <h3>Subtitle Placeholder</h3>
-    </hgroup>
-    <article class="smaller">
-      <table>
-        <tr>
-          <th></th><th>Column 1</th><th>Column 2</th><th>Column 3</th><th>Column 4</th>
-        </tr>
-        <tr>
-          <td>Row 1</td><td>placeholder</td><td class="highlight">placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 2</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 3</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 4</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 5</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-      </table>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Table Option B</h2>
-      <h3>Subtitle Placeholder</h3>
-    </hgroup>
-    <article>
-      <table class="rows">
-        <tr>
-          <th>Header 1</th><td>placeholder</td><td class="highlight">placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <th>Header 2</th><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <th>Header 3</th><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <th>Header 4</th><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <th>Header 5</th><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-      </table>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Slide Styles</h2>
-    </hgroup>
-    <article class="smaller">
-      <div class="columns-2">
-        <ul>
-          <li class="red">class="red"</li>
-          <li class="red2">class="red2"</li>
-          <li class="red3">class="red3"</li>
-          <li class="blue">class="blue"</li>
-          <li class="blue2">class="blue2"</li>
-          <li class="blue3">class="blue3"</li>
-          <li class="green">class="green"</li>
-          <li class="green2">class="green2"</li>
-        </ul>
-        <ul>
-          <li class="green3">class="green3"</li>
-          <li class="yellow">class="yellow"</li>
-          <li class="yellow2">class="yellow2"</li>
-          <li class="yellow3">class="yellow3"</li>
-          <li class="gray">class="gray"</li>
-          <li class="gray2">class="gray2"</li>
-          <li class="gray3">class="gray3"</li>
-          <li class="gray4">class="gray4"</li>
-        </ul>
-      </div>
-      <div class="centered" style="margin-top:2em">
-        I am centered text with a <button>Button</button> and <button disabled>Disabled</button> button.
-      </div>
-    </article>
-  </slide>
-
-  <slide class="segue dark nobackground">
-    <hgroup class="auto-fadein">
-      <h2>Segue Slide</h2>
-      <h3>Subtitle Placeholder</h3>
-    </hgroup>
-  </slide>
-
-  <slide class="fill nobackground" style="background-image: url(images/sky.jpg)">
-    <hgroup>
-      <h2 class="white">Full Image (with Optional Header)</h2>
-    </hgroup>
-    <footer class="source white">www.flickr.com/photos/25797459@N06/5438799763/</footer>
-  </slide>
-
-  <slide class="segue dark quote nobackground">
-    <article class="flexbox vleft auto-fadein">
-      <q>
-        This is an example of quote text.
-      </q>
-      <div class="author">
-        Name<br>
-        Company
-      </div>
+      <p lang="latex">$$ d_{1} + d_{2} + d_{3} + d_{4} + d_{5} +  ... + d_{k-1} + d_{k} \ | \ a \ great \ example$$</p>
+      <p><font size="3">optimization problems | + | iterater | serial</font></p>
+      <p><font size="3">why (motivation)</font></p>     
+      <p><font size="3">a little history</font></p>
+      <p><font size="3">what (is parallel computing)</font></p>     
+      <p><font size="3">How (kiss)</font></p>     
+      <p><font size="3">what (is distributed framework)</font></p>
+      <p><font size="3" color="green">seriesII (end of Oct): bsp, pregel (in action)</font></p>
+      <p><font size="3" color="green">seriesIII (middle of Nov): parasol (how to build a demo distributed system)</font></p>
     </article>
   </slide>
 
