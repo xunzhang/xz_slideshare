@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+  <title></title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="logoslide nobackground">
+    <article class="flexbox vcenter">
+      <span><img src="images/douban_logo.png"></span>
+    </article>
+  </slide>
+
+  <slide class="title-slide segue nobackground">
+    <!--aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+  </slide>
+
+  <slide class="no3">
+    <hgroup>
+      <h2>Look Back</h2>
+    </hgroup>
+    <article>
+      <br>
+      <p>Concept/Terminology</p><br>
+      <p>Summation(plus)</p><br>
+      <p>Paradigm(kiss/MPI/OpenMP/Mapreduce/Spark)</p><br>
+      <p>Why distributed computational framework</p>
+      <br>
+    </article>
+  </slide>
+
+  <slide class="no4">
+    <hgroup>
+      <h2>Motivation</h2>
+    </hgroup>
+    <article>
+      <div>
+        <p><font size="6">Scalability Challenge</font></p>
+        <ul class="build fade">
+          <li><font size="5">massive data volume<br></font></li>
+          <li><font size="5">massive model size<br></font></li>
+        </ul>
+      </div>
+    </article>
+  </slide>
+
+  <slide class="no5">
+    <hgroup>
+      <h2>Some Solutions</h2>
+    </hgroup>
+    <article>
+      <div>
+        <p class="build fade"><font size="5">One machine with multi-threads/SSD | GPU</font></p>
+        <ul class="build fade">
+          <li><font size="4" color="green">hardware solution | luxury | sample data<br></font></li>
+        </ul>
+        <p class="build fade"><font size="5">Parallel version of ML alg(impl with MPI/pthread/bsp...)</font></p>
+        <ul class="build fade">
+          <li><font size="4" color="green">trivial | low level | less readable | no code reuse<br></font></li>
+        </ul>
+        <p class="build fade"><font size="5">Distributed computing architecture(Mapreduce/Graphlab/Spark/Pregel...)</font></p>
+        <ul class="build fade">
+          <li><font size="4" color="green">mapreduce | model transformation cost | no communication api<br></font></li>
+          <li><font size="4" color="green">Spark | wide dependency | iterative tasks | unconsidered flexibility<br></font></li>
+          <li><font size="4" color="green">bsp/Pregel | synchronous overhead | straggler-worker problem | Graphlab?<br></font></li>
+        </ul>
+      </div>
+    </article>
+  </slide>
+
+  <slide class="no6">
+    <hgroup>
+      <h2>Challenge/Goal</h2>
+    </hgroup>
+    <article>
+      <div>
+        <p class="build fade"><font size="5">scalability(both data size and model size)</font></p>
+        <p class="build fade"><font size="5">simple communication model</font></p>
+        <p class="build fade"><font size="5">learning algs(iterative tasks)</font></p>
+        <p class="build fade"><font size="5">optimized synchronous/straggler-worker problem(last-reducer problem)</font></p>
+        <p class="build fade"><font size="5">minimized model transformation cost</font></p>
+      </div>
+    </article>
+  </slide>
+
+  <slide class="no7">
+    <hgroup>
+      <h2>Parasol</h2>
+    </hgroup>
+    <article>
+      <div>
+        <p class="build fade"><font size="5">parameter server</font></p>
+        <ul class="build fade">
+          <li><font size="4">motivated by DistBelief(google's deep-learning-system)<br></font></li>
+          <li><font size="4">a distributed centralized key-value storage<br></font></li>
+          <li><font size="4">shared parameters by workers<br></font></li>
+        </ul>
+        <p class="build fade"><font size="5">asynchronous model</font></p>
+        <ul class="build fade">
+          <li><font size="4">stale synchronous parallel(SSP)<br></font></li>
+          <li><font size="4">lazy update | bounded staleness<br></font></li>
+        </ul>
+      </div>
+    </article>
+  </slide>
+  
+  <slide class="no8">
+    <hgroup>
+      <h2>Abstraction</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <p>learning algorithms</p>
+        <p lang="latex">$$ \theta  \leftarrow  \theta + \delta $$</p>
+      </ul>
+    </article>
+  </slide>
+
+  <slide class="no9">
+    <hgroup>
+      <h2>Communication Model</h2>
+    </hgroup>
+    <article>
+      <img src="images/ps1.png" class="reflect" alt="Description" title="Description">
+      <footer class="source">source: infolab.stanford.edu/infoseminar/dean.pdf</footer>
+    </article>
+  </slide>
+
+  <slide class="no10">
+    <hgroup>
+      <h2>Communication Model</h2>
+    </hgroup>
+    <article>
+      <img src="images/ps2.png" class="reflect" alt="Description" title="Description">
+      <footer class="source">source: infolab.stanford.edu/infoseminar/dean.pdf</footer>
+    </article>
+  </slide>
+  
+  <slide class="no11">
+    <hgroup>
+      <h2>Communication Model</h2>
+    </hgroup>
+    <article>
+      <img src="images/ps3.png" class="reflect" alt="Description" title="Description">
+      <footer class="source">source: infolab.stanford.edu/infoseminar/dean.pdf</footer>
+    </article>
+  </slide>
+
+    <slide class="no12">
+    <hgroup>
+      <h2>Communication Model</h2>
+    </hgroup>
+    <article>
+      <img src="images/ps4.png" class="reflect" alt="Description" title="Description">
+      <footer class="source">source: infolab.stanford.edu/infoseminar/dean.pdf</footer>
+    </article>
+  </slide>
+
+  <slide class="no13">
+    <hgroup>
+      <h2>Communication Model</h2>
+    </hgroup>
+    <article>
+      <img src="images/ps5.png" class="reflect" alt="Description" title="Description">
+      <footer class="source">source: infolab.stanford.edu/infoseminar/dean.pdf</footer>
+    </article>
+  </slide>
+  
+  <slide class="no14">
+    <hgroup>
+      <h2>Communication Model</h2>
+    </hgroup>
+    <article>
+      <img src="images/ps6.png" class="reflect" alt="Description" title="Description">
+      <footer class="source">source: infolab.stanford.edu/infoseminar/dean.pdf</footer>
+    </article>
+  </slide>
+
+  <slide class="no15">
+    <hgroup>
+      <h2>Communication Model</h2>
+    </hgroup>
+    <article>
+      <img src="images/ps7.png" class="reflect" alt="Description" title="Description">
+      <footer class="source">source: infolab.stanford.edu/infoseminar/dean.pdf</footer>
+    </article>
+  </slide>
+  
+  <slide class="no16">
+    <hgroup>
+      <h2>Communication Model</h2>
+    </hgroup>
+    <article>
+      <img src="images/ps8.png" class="reflect" alt="Description" title="Description">
+      <footer class="source">source: infolab.stanford.edu/infoseminar/dean.pdf</footer>
+    </article>
+  </slide>
+
+  <slide class="no17">
+    <hgroup>
+      <h2>Communication Api</h2>
+    </hgroup>
+    <article>
+      <p>read</p>
+      <p>write</p>
+      <p>update</p>
+      <p>read_all</p>
+      <p>...</p>
+    </article>
+  </slide>
+  
+  <slide class="no18">
+    <hgroup>
+      <h2>Last-Reducer Problem</h2>
+    </hgroup>
+    <article>
+      <p class="build fade"><font size="5">Predictable stragglers</font></p>
+      <ul class="build fade">
+        <li><font size="4">Slow/old	machine<br></font></li>
+        <li><font size="4">Bad network card<br></font></li>
+        <li><font size="4">Load unbalance<br></font></li>
+      </ul>
+      <p class="build fade"><font size="5">Unpredictable stragglers</font></p>
+      <ul class="build fade">
+        <li><font size="4">Hardware: disk seeks | network | CPU interrupts<br></font></li>
+        <li><font size="4">Software: garbage collection | virtualization<br></font></li>
+        <li><font size="4">Algorithmic: Calculating objectives | stop conditions<br></font></li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide class="no19">
+    <hgroup>
+      <h2>SSP</h2>
+    </hgroup>
+    <article>
+      <p class="build fade"><font size="5">phase/clock</font></p>
+      <p class="build fade"><font size="5">limit_s</font></p>
+      <p class="build fade"><font size="5">may get 'stale' para</font></p>
+      <p class="build fade"><font size="5">not too 'stale'</font></p>
+    </article>
+  </slide>
+  
+  <slide class="no20">
+    <hgroup>
+      <h2>SSP</h2>
+    </hgroup>
+    <article>
+      <img src="images/ssp.png" class="reflect" alt="Description" title="Description">
+    </article>
+  </slide>
+  
+  <slide class="no21">
+    <hgroup>
+      <h2>First Design</h2>
+    </hgroup>
+    <article>
+      <p class="build fade"><font size="5">text file | planning partition + load | restricted fmt</font></p>
+      <p class="build fade"><font size="5">one socket per req/rep</font></p>
+      <p class="build fade"><font size="5">k-v tables</font></p>
+      <p class="build fade"><font size="5">replicas | paxos-like strategy</font></p>
+    </article>
+  </slide>
+  
+  <slide class="no22">
+    <hgroup>
+      <h2>Loader</h2>
+    </hgroup>
+    <article>
+      <p class="build fade"><font size="5">pattern: linesplit(default) | fmap | smap | fsmap | fvec</font></p>
+      <p class="build fade"><font size="5">mix flag</font></p>
+      <pre class="prettyprint" data-lang="python">
+parser = lambda line: line.strip('\n').split()
+ld = loader('./*.csv', comm, 'fsmap', parser, False)
+lines = ld.load()
+graph = ld.create_graph(lines) 
+matrix = ld.create_matrix(lines)
+      </pre>
+    </article>
+  </slide>
+
+  <slide class="no23">
+    <hgroup>
+      <h2>Threading Model</h2>
+    </hgroup>
+    <article>
+      <p class="build fade"><font size="5">client</font></p>
+      <ul class="build fade">
+        <li><font size="4">lazy op sockets<br></font></li>
+        <li><font size="4">block: write, read<br></font></li>
+        <li><font size="4">nonblock: update<br></font></li>
+      </ul>
+      <p class="build fade"><font size="5">server</font></p>
+      <ul class="build fade">
+        <li><font size="4">6 threads per k-v procs<br></font></li>
+        <li><font size="4">pull-like<br></font></li>
+        <li><font size="4">push-like<br></font></li>
+        <li><font size="4">inc<br></font></li>
+        <li><font size="4">delete/clear<br></font></li>
+        <li><font size="4">update<br></font></li>
+        <li><font size="4">x<br></font></li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide class="no24">
+    <hgroup>
+      <h2>Fault Tolerance</h2>
+    </hgroup>
+    <article>
+      <p class="build fade"><font size="5">estimation | 1/10000.</font></p>
+      <p class="build fade"><font size="5">100-500 procs | 0.95-0.99</font></p>
+      <p class="build fade"><font size="5">2000-5000 procs | 0.6-0.8 </font></p>
+      <p class="build fade"><font size="5">ft api(TODO)</font></p>
+    </article>
+  </slide>
+
+  <slide class="no25">
+    <hgroup>
+      <h2>Second Design</h2>
+    </hgroup>
+    <article>
+      <p class="build fade"><font size="5">parser + pattern + mix_flag</font></p>
+      <p class="build fade"><font size="5">one k-v table</font></p>
+      <p class="build fade"><font size="5">user-define update op | update vs inc</font></p>
+      <p class="build fade"><font size="5">no replicas | no consistency problem | alg responsibility</font></p>
+    </article>
+  </slide>
+
+  <slide class="no26">
+    <hgroup>
+      <h2>Implementation</h2>
+    </hgroup>
+    <article>
+      <p class="build fade"><font size="5">Python</font></p>
+      <p class="build fade"><font size="5">mpi4py</font></p>
+      <p class="build fade"><font size="5">zeromq</font></p>
+      <p class="build fade"><font size="5">msgpack</font></p>
+    </article>
+  </slide>
+
+  <slide class="no27">
+    <hgroup>
+      <h2>Demo(logistic regression)</h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint" data-lang="python">
+def h(x, theta):
+    return e ** np.dot(x, theta) / (1. + e ** np.dot(x, theta))
+
+def log_reg_sgd(x, y, alpha, iter):
+    m, n = x.shape
+    theta = np.random.rand(n)
+    z = np.arragne(m)
+    for it in xrange(iter):
+        z = np.random.permutation(z)
+        for i in z:
+            theta += alpha * (y[i] - h(x[i], theta)) * x[i]
+    return theta
+    </pre>
+    </article>
+  </slide>
+
+  <slide class="no28"> 
+    <aside class="note">
+      <section>
+        <ul>
+          <li>almost painless from serial to parallel</li>
+        </ul>
+      </section>
+    </aside>
+    <hgroup>
+      <h2>Work with Parasol</h2>
+    </hgroup>
+    <article class="smaller">
+    <pre class="prettyprint" data-lang="python">
+class sgd(<b>paralg</b>):
+    def __init__(self): ...
+
+    def sgd_kernel(self):
+        self.theta = np.random.rand(n)
+        <b>paralg.write(self, 'theta', self.theta)</b>
+        m, n = self.sample.shape
+        self.theta = np.random.rand(n)
+        z = np.arragne(m)
+        for it in xrange(iter):
+            z = np.random.permutation(z)
+            for i in z:
+                <b>self.theta = paralg.paralg.read(self, 'theta')</b>
+                delta = alpha * (y[i] - h(x[i], theta)) * x[i]
+                self.theta += delta
+                <b>paralg.paralg_inc(self, 'theta', delta)</b>
+        <b>self.theta = paralg.paralg_read(self, 'theta')</b>
+        return theta
+    </pre>
+    </article>
+  </slide>
+
+  <slide class="no29"> 
+    <hgroup>
+      <h2>Work with Parasol</h2>
+    </hgroup>
+    <article class="smaller">
+    <pre class="prettyprint" data-lang="python">
+class sgd(<b>paralg</b>):
+    def __init__(self): ...
+
+    def sgd_kernel(self):
+        <b>self.splits = paralg.get_decomp(self)</b>
+        self.theta = np.random.rand(n)
+        paralg.write(self, 'theta', self.theta)
+        m, n = self.sample.shape
+        self.theta = np.random.rand(n)
+        z = np.arragne(m)
+        for it in xrange(iter):
+            z = np.random.permutation(z)
+            for i in z:
+                self.theta = paralg.paralg.read(self, 'theta')
+                delta = alpha * (y[i] - h(x[i], theta)) * x[i]
+                self.theta += delta
+                paralg.paralg_inc(self, 'theta', <b>delta / self.splits</b>)
+        self.theta = paralg.paralg_read(self, 'theta')
+        return theta
+    </pre>
+    </article>
+  </slide>
+
+  <slide class="no30"> 
+   <aside class="note">
+      <section>
+        <ul>
+          <li>Let's check out another example</li>
+        </ul>
+      </section>
+    </aside>
+    <hgroup>
+      <h2>Work with Parasol (ssp)</h2>
+    </hgroup>
+    <article class="smaller">
+    <pre class="prettyprint" data-lang="python">
+<b>limit_s = 3</b>
+class sgd(paralg):
+    def __init__(self): ...
+
+    def sgd_kernel(self):
+        self.splits = paralg.get_decomp(self)
+        self.theta = np.random.rand(n)
+        paralg.write(self, 'theta', self.theta)
+        m, n = self.sample.shape
+        self.theta = np.random.rand(n)
+        z = np.arragne(m)
+        for it in xrange(iter):
+            z = np.random.permutation(z)
+            for i in z:
+                self.theta = paralg.paralg.read(self, 'theta')
+                delta = alpha * (y[i] - h(x[i], theta)) * x[i]
+                self.theta += delta
+                paralg.paralg_inc(self, 'theta', delta / self.splits)
+            <b>paralg.phase_done(self)</b>
+        self.theta = paralg.paralg_read(self, 'theta')
+        return theta
+    </pre>
+    </article>
+  </slide>
+
+  <slide class="no31">
+    <hgroup>
+      <h2>Parasol APIs</h2>
+    </hgroup>
+    <article class="smaller">
+    <pre class="prettyprint" data-lang="python">
+class paralg:
+    def get_nodeid():
+
+    def get_nodesize():
+
+    def set_phases();
+
+    def sync():
+
+    def loadinput():
+
+    def getlines():
+
+    def get_graph():
+
+    def paralg_read():
+
+    def paralg_write():
+
+    def paralg_inc():
+
+    def phase_done():
+    
+    ...
+    </pre>
+    </article>
+  </slide>
+
+  <slide class="no32">
+    <hgroup>
+      <h2>Optimization</h2>
+    </hgroup>
+    <article>
+      <p class="build fade"><font size="5">paralg_batch_read | paralg_batch_write | paralg_batch_update </font></p>
+      <p class="build fade"><font size="5">jumping communication</font></p>
+    </article>
+  </slide>
+
+  <slide class="no33">
+    <hgroup>
+      <h2>Piece of Result</h2>
+      <h3>worker scalability</h3>
+    </hgroup>
+    <article class="smaller">
+      <p>server 1 | k 50 | netflix_small | 0.005,0.02 | rounds 5 | limit_s 0 | beater7 </p>
+      <table>
+        <tr>
+          <th></th><th>rmse</th><th>pull/round time</th><th>learning/round time</th><th>inc/round time</th><th>total time</th>
+        </tr>
+        <tr>
+          <td>1</td><td>0.8820</td><td>9s</td><td>470-514s</td><td>1-2s</td><td>3109s</td>
+        </tr>
+        <tr>
+          <td>2</td><td>0.8435</td><td>6-16s</td><td>275-310s</td><td>6-9s</td><td>1585s</td>
+        </tr>
+        <tr>
+          <td>4</td><td>0.8796</td><td>7-15s</td><td>130-140s</td><td>3-5s</td><td>780s</td>
+        </tr>
+        <tr>
+          <td>8</td><td>0.8966</td><td>7-25s</td><td>49-75s</td><td>3-4s</td><td>455s</td>
+        </tr>
+        <tr>
+          <td>16</td><td>0.9363</td><td>14-26s</td><td>40-69s</td><td>2-4s</td><td class="highlight">440s</td>
+        </tr>
+      </table>
+    </article>
+  </slide>
+
+  <slide class="no34">
+    <hgroup>
+      <h2>Piece of Result</h2>
+      <h3>limit_s</h3>
+    </hgroup>
+    <article class="smaller">
+      <p>server 1 | k 50 | netflix_small | 0.005,0.02 | rounds 5 | worker 16 | beater7 </p>
+      <table>
+        <tr>
+          <th></th><th>rmse</th><th>total</th>
+        </tr>
+        <tr>
+          <td>0</td><td>0.9363</td><td>440s</td>
+        </tr>
+        <tr>
+          <td>1</td><td>0.9370</td><td>422s</td>
+        </tr>
+        <tr>
+          <td>3</td><td>0.9371</td><td>454s</td>
+        </tr>
+        <tr>
+          <td>5</td><td>0.9347</td><td>407s</td>
+        </tr>
+      </table>
+    </article>
+  </slide>
+
+ <slide class="no35">
+    <hgroup>
+      <h2>More Result</h2>
+    </hgroup>
+    <article>
+      <p class="build fade"><font size="5">server scalability</font></p>
+      <p class="build fade"><font size="5">mf_v2 to test limit_s</font></p>
+      <p class="build fade"><font size="5">demo</font></p>
+    </article>
+ </slide>
+
+ <slide class="no36">
+    <hgroup>
+      <h2>General Framework?</h2>
+    </hgroup>
+    <article>
+      <p class="build fade"><font size="5">word count | y</font></p>
+      <p class="build fade"><font size="5">pagerank | graph algorithms | bsp | y</font></p>
+      <p class="build fade"><font size="5">other | cos?</font></p>
+    </article>
+ </slide>
+
+ <slide class="no37">
+    <hgroup>
+      <h2>Future Work</h2>
+    </hgroup>
+    <article>
+    <p class="build fade"><font size="5">bug fix</font></p>
+    <p class="build fade"><font size="5">commnucation test</font></p>
+    <p class="build fade"><font size="5">C++ version</font></p>
+    <p class="build fade"><font size="5">optimize hash function to keep load balance &amp key distributed</font></p>
+    <p class="build fade"><font size="5">ft</font></p>
+    </article>
+  </slide>
+
+  <slide class="no38">
+    <hgroup>
+      <h2>Conclusion</h2>
+    </hgroup>
+    <article>
+      <p class="build fade"><font size="5">a distributed framework for learning algs</font></p>
+      <p class="build fade"><font size="5">distributed both dataset and parameter space</font></p>
+      <p class="build fade"><font size="5">ssp to solve last-reducer problem</font></p>
+      <p class="build fade"><font size="5">zero pain from serial to parallel</font></p>
+    </article>
+  </slide>
+
+  <slide class="no39">
+    <hgroup>
+      <h2>Two 'Love' Story</h2>
+    </hgroup>
+    <article>
+      <p class="build fade"><font size="5">Keep confident</font></p>
+      <p class="build fade"><font size="5">Stay focus</font></p>
+      <p class="build fade"><font size="5">Try creative</font></p>
+    </article>
+  </slide>
+
+  <slide class="no40">
+    <hgroup>
+      <h2>Logo</h2>
+    </hgroup>
+    <article>
+      <p class="build fade"><font size="5" color="green">(0.5,1) - (0, 0.5) - (1,0.5) - (0.5, 1) - (0.5, 0.25) - (0.25, 0.25)</font></p>
+    </article>
+  </slide>
+
+  <slide class="thank-you-slide segue nobackground">
+    <article class="flexbox vleft auto-fadein">
+      <h2>Thank You!</h2>
+      <p>contact info</p>
+    </article>
+    <p class="auto-fadein" data-config-contact>
+      <!-- populated from slide_config.json -->
+    </p>
+  </slide>
+
+  <slide class="logoslide dark nobackground">
+    <article class="flexbox vcenter">
+      <span><img src="images/douban_logo.png"></span>
+    </article>
+  </slide>
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
