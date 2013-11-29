@@ -41,10 +41,10 @@
     </hgroup>
     <article>
       <br>
-      <p>Concept/Terminology</p><br>
-      <p>Summation(plus)</p><br>
-      <p>Paradigm(kiss/MPI/OpenMP/Mapreduce/Spark)</p><br>
-      <p>Why distributed computational framework</p>
+      <p><font size="5">Concept/Terminology</font></p><br>
+      <p><font size="5">Summation(plus)</font></p><br>
+      <p><font size="5">Paradigm(kiss | MPI | OpenMP | Mapreduce | Spark)</font></p><br>
+      <p><font size="5">Why distributed computational framework</font></p>
       <br>
     </article>
   </slide>
@@ -55,10 +55,10 @@
     </hgroup>
     <article>
       <div>
-        <p><font size="6">Scalability Challenge</font></p>
+        <p><font size="5">Scalability Challenge</font></p>
         <ul class="build fade">
-          <li><font size="5">massive data volume<br></font></li>
-          <li><font size="5">massive model size<br></font></li>
+          <li><font size="4">massive data size<br></font></li>
+          <li><font size="4">massive model size<br></font></li>
         </ul>
       </div>
     </article>
@@ -70,19 +70,19 @@
     </hgroup>
     <article>
       <div>
-        <p class="build fade"><font size="5">One machine with multi-threads/SSD | GPU</font></p>
+        <p class="build fade"><font size="5">One machine with multi-threads | SSD | GPU</font></p>
         <ul class="build fade">
-          <li><font size="4" color="green">hardware solution | luxury | sample data<br></font></li>
+          <li><font size="4" color="green">hardware solution | expensive | sample data<br></font></li>
         </ul>
         <p class="build fade"><font size="5">Parallel version of ML alg(impl with MPI/pthread/bsp...)</font></p>
         <ul class="build fade">
-          <li><font size="4" color="green">trivial | low level | less readable | no code reuse<br></font></li>
+          <li><font size="4" color="green">trivial | less readable | no code reuse<br></font></li>
         </ul>
         <p class="build fade"><font size="5">Distributed computing architecture(Mapreduce/Graphlab/Spark/Pregel...)</font></p>
         <ul class="build fade">
           <li><font size="4" color="green">mapreduce | model transformation cost | no communication api<br></font></li>
-          <li><font size="4" color="green">Spark | wide dependency | iterative tasks | unconsidered flexibility<br></font></li>
-          <li><font size="4" color="green">bsp/Pregel | synchronous overhead | straggler-worker problem | Graphlab?<br></font></li>
+          <li><font size="4" color="green">Spark | wide dependency | iterative tasks<br></font></li>
+          <li><font size="4" color="green">Bsp/pregel | synchronous overhead | Graphlab?<br></font></li>
         </ul>
       </div>
     </article>
@@ -94,11 +94,11 @@
     </hgroup>
     <article>
       <div>
-        <p class="build fade"><font size="5">scalability(both data size and model size)</font></p>
-        <p class="build fade"><font size="5">simple communication model</font></p>
-        <p class="build fade"><font size="5">learning algs(iterative tasks)</font></p>
-        <p class="build fade"><font size="5">optimized synchronous/straggler-worker problem(last-reducer problem)</font></p>
-        <p class="build fade"><font size="5">minimized model transformation cost</font></p>
+        <p class="build fade"><font size="4">Scalability(both data size and model size)</font></p>
+        <p class="build fade"><font size="4">Simple communication model</font></p>
+        <p class="build fade"><font size="4">Learning problem(iterative)</font></p>
+        <p class="build fade"><font size="4">Optimized synchronous/straggler-worker problem/last-reducer problem</font></p>
+        <p class="build fade"><font size="4">Minimized model transformation cost</font></p>
       </div>
     </article>
   </slide>
@@ -109,13 +109,13 @@
     </hgroup>
     <article>
       <div>
-        <p class="build fade"><font size="5">parameter server</font></p>
+        <p class="build fade"><font size="5">Parameter server</font></p>
         <ul class="build fade">
           <li><font size="4">motivated by DistBelief(google's deep-learning-system)<br></font></li>
           <li><font size="4">a distributed centralized key-value storage<br></font></li>
           <li><font size="4">shared parameters by workers<br></font></li>
         </ul>
-        <p class="build fade"><font size="5">asynchronous model</font></p>
+        <p class="build fade"><font size="5">Asynchronous model</font></p>
         <ul class="build fade">
           <li><font size="4">stale synchronous parallel(SSP)<br></font></li>
           <li><font size="4">lazy update | bounded staleness<br></font></li>
@@ -130,12 +130,12 @@
     </hgroup>
     <article>
       <ul>
-        <p>learning algorithms</p>
+        <p>Learning problems</p>
         <p lang="latex">$$ \theta  \leftarrow  \theta + \delta $$</p>
       </ul>
     </article>
   </slide>
-
+  
   <slide class="no9">
     <hgroup>
       <h2>Communication Model</h2>
@@ -221,10 +221,10 @@
       <h2>Communication Api</h2>
     </hgroup>
     <article>
-      <p>read</p>
-      <p>write</p>
-      <p>update</p>
-      <p>read_all</p>
+      <p><font size="5">read</font></p>
+      <p><font size="5">write</font></p>
+      <p><font size="5">update</font></p>
+      <p><font size="5">read_all</font></p>
       <p>...</p>
     </article>
   </slide>
@@ -254,14 +254,21 @@
       <h2>SSP</h2>
     </hgroup>
     <article>
-      <p class="build fade"><font size="5">phase/clock</font></p>
-      <p class="build fade"><font size="5">limit_s</font></p>
-      <p class="build fade"><font size="5">may get 'stale' para</font></p>
-      <p class="build fade"><font size="5">not too 'stale'</font></p>
+      <p class="build fade"><font size="4">phase/clock</font></p>
+      <p class="build fade"><font size="4">limit_s</font></p>
+      <p class="build fade"><font size="4">may get 'stale' para</font></p>
+      <p class="build fade"><font size="4">not too 'stale'</font></p>
     </article>
   </slide>
   
   <slide class="no20">
+    <aside class="note">
+      <section>
+        <ul>
+          <li>sweet spot</li>
+        </ul>
+      </section>
+    </aside>
     <hgroup>
       <h2>SSP</h2>
     </hgroup>
@@ -275,10 +282,10 @@
       <h2>First Design</h2>
     </hgroup>
     <article>
-      <p class="build fade"><font size="5">text file | planning partition + load | restricted fmt</font></p>
-      <p class="build fade"><font size="5">one socket per req/rep</font></p>
-      <p class="build fade"><font size="5">k-v tables</font></p>
-      <p class="build fade"><font size="5">replicas | paxos-like strategy</font></p>
+      <p class="build fade"><font size="4">text file | user-defined partition | restricted fmt</font></p>
+      <p class="build fade"><font size="4">one socket per req/rep</font></p>
+      <p class="build fade"><font size="4">k-v tables</font></p>
+      <p class="build fade"><font size="4">replicas | paxos-like strategy</font></p>
     </article>
   </slide>
   
@@ -287,11 +294,12 @@
       <h2>Loader</h2>
     </hgroup>
     <article>
-      <p class="build fade"><font size="5">pattern: linesplit(default) | fmap | smap | fsmap | fvec</font></p>
-      <p class="build fade"><font size="5">mix flag</font></p>
+      <p class="build fade"><font size="4">pattern: linesplit(default) | fmap | smap | fsmap | fvec</font></p>
+      <p class="build fade"><font size="4">mix flag</font></p>
       <pre class="prettyprint" data-lang="python">
+# parasol loader usage
 parser = lambda line: line.strip('\n').split()
-ld = loader('./*.csv', comm, 'fsmap', parser, False)
+ld = loader('./*.csv', 'fsmap', parser, False)
 lines = ld.load()
 graph = ld.create_graph(lines) 
 matrix = ld.create_matrix(lines)
@@ -301,25 +309,25 @@ matrix = ld.create_matrix(lines)
 
   <slide class="no23">
     <hgroup>
-      <h2>Threading Model</h2>
+      <h2>Socket/Threading Model</h2>
     </hgroup>
     <article>
-      <p class="build fade"><font size="5">client</font></p>
+      <p class="build fade"><font size="5">Client</font></p>
       <ul class="build fade">
-        <li><font size="4">lazy op sockets<br></font></li>
+        <li><font size="4">lazy socket<br></font></li>
         <li><font size="4">block: write, read<br></font></li>
         <li><font size="4">nonblock: update<br></font></li>
       </ul>
-      <p class="build fade"><font size="5">server</font></p>
+      <p class="build fade"><font size="5">Server</font></p>
       <ul class="build fade">
-        <li><font size="4">6 threads per k-v procs<br></font></li>
+        <li><font size="4">multi-threads per k-v procs<br></font></li>
         <li><font size="4">pull-like<br></font></li>
         <li><font size="4">push-like<br></font></li>
-        <li><font size="4">inc<br></font></li>
         <li><font size="4">delete/clear<br></font></li>
         <li><font size="4">update<br></font></li>
         <li><font size="4">x<br></font></li>
       </ul>
+      <p class="build fade"><font size="5">Multi2multi</font></p>
     </article>
   </slide>
 
@@ -328,22 +336,22 @@ matrix = ld.create_matrix(lines)
       <h2>Fault Tolerance</h2>
     </hgroup>
     <article>
-      <p class="build fade"><font size="5">estimation | 1/10000.</font></p>
-      <p class="build fade"><font size="5">100-500 procs | 0.95-0.99</font></p>
-      <p class="build fade"><font size="5">2000-5000 procs | 0.6-0.8 </font></p>
-      <p class="build fade"><font size="5">ft api(TODO)</font></p>
+      <p class="build fade"><font size="4">estimation | 1/5000.</font></p>
+      <p class="build fade"><font size="4">100-500 procs | 0.90-0.99</font></p>
+      <p class="build fade"><font size="4">1000-3000 procs | 0.54-0.81</font></p>
+      <p class="build fade"><font size="4">ft api(TODO)</font></p>
     </article>
   </slide>
-
+  
   <slide class="no25">
     <hgroup>
       <h2>Second Design</h2>
     </hgroup>
     <article>
-      <p class="build fade"><font size="5">parser + pattern + mix_flag</font></p>
-      <p class="build fade"><font size="5">one k-v table</font></p>
-      <p class="build fade"><font size="5">user-define update op | update vs inc</font></p>
-      <p class="build fade"><font size="5">no replicas | no consistency problem | alg responsibility</font></p>
+      <p class="build fade"><font size="4">parser + pattern + mix_flag</font></p>
+      <p class="build fade"><font size="4">one k-v table</font></p>
+      <p class="build fade"><font size="4">user-defined update | update vs inc</font></p>
+      <p class="build fade"><font size="4">no replicas | alg responsibility</font></p>
     </article>
   </slide>
 
@@ -352,16 +360,16 @@ matrix = ld.create_matrix(lines)
       <h2>Implementation</h2>
     </hgroup>
     <article>
-      <p class="build fade"><font size="5">Python</font></p>
-      <p class="build fade"><font size="5">mpi4py</font></p>
-      <p class="build fade"><font size="5">zeromq</font></p>
-      <p class="build fade"><font size="5">msgpack</font></p>
+      <p class="build fade"><font size="4">Python</font></p>
+      <p class="build fade"><font size="4">Mpi4py</font></p>
+      <p class="build fade"><font size="4">Zeromq</font></p>
+      <p class="build fade"><font size="4">Msgpack</font></p>
     </article>
   </slide>
 
   <slide class="no27">
     <hgroup>
-      <h2>Demo(logistic regression)</h2>
+      <h2>Demo (logistic regression)</h2>
     </hgroup>
     <article>
     <pre class="prettyprint" data-lang="python">
@@ -490,6 +498,7 @@ class sgd(paralg):
     <article class="smaller">
     <pre class="prettyprint" data-lang="python">
 class paralg:
+
     def get_nodeid():
 
     def get_nodesize():
@@ -522,8 +531,8 @@ class paralg:
       <h2>Optimization</h2>
     </hgroup>
     <article>
-      <p class="build fade"><font size="5">paralg_batch_read | paralg_batch_write | paralg_batch_update </font></p>
-      <p class="build fade"><font size="5">jumping communication</font></p>
+      <p class="build fade"><font size="4">batch_read/write/update</font></p>
+      <p class="build fade"><font size="4">jump read/write/update</font></p>
     </article>
   </slide>
 
@@ -551,7 +560,7 @@ class paralg:
           <td>8</td><td>0.8966</td><td>7-25s</td><td>49-75s</td><td>3-4s</td><td>455s</td>
         </tr>
         <tr>
-          <td>16</td><td>0.9363</td><td>14-26s</td><td>40-69s</td><td>2-4s</td><td class="highlight">440s</td>
+          <td>16</td><td>0.9163</td><td>14-26s</td><td>40-69s</td><td>2-4s</td><td class="highlight">440s</td>
         </tr>
       </table>
     </article>
@@ -569,16 +578,16 @@ class paralg:
           <th></th><th>rmse</th><th>total</th>
         </tr>
         <tr>
-          <td>0</td><td>0.9363</td><td>440s</td>
+          <td>0</td><td>0.9163</td><td>440s</td>
         </tr>
         <tr>
-          <td>1</td><td>0.9370</td><td>422s</td>
+          <td>1</td><td>0.9170</td><td>422s</td>
         </tr>
         <tr>
-          <td>3</td><td>0.9371</td><td>454s</td>
+          <td>3</td><td>0.9171</td><td>454s</td>
         </tr>
         <tr>
-          <td>5</td><td>0.9347</td><td>407s</td>
+          <td>5</td><td>0.9147</td><td>407s</td>
         </tr>
       </table>
     </article>
@@ -589,9 +598,9 @@ class paralg:
       <h2>More Result</h2>
     </hgroup>
     <article>
-      <p class="build fade"><font size="5">server scalability</font></p>
-      <p class="build fade"><font size="5">mf_v2 to test limit_s</font></p>
-      <p class="build fade"><font size="5">demo</font></p>
+      <p class="build fade"><font size="4">server scalability</font></p>
+      <p class="build fade"><font size="4">mf-v2 to test limit_s</font></p>
+      <p class="build fade"><font size="4">demo</font></p>
     </article>
  </slide>
 
@@ -600,22 +609,21 @@ class paralg:
       <h2>General Framework?</h2>
     </hgroup>
     <article>
-      <p class="build fade"><font size="5">word count | y</font></p>
-      <p class="build fade"><font size="5">pagerank | graph algorithms | bsp | y</font></p>
-      <p class="build fade"><font size="5">other | cos?</font></p>
+      <p class="build fade"><font size="4">pi-like(word count) | y</font></p>
+      <p class="build fade"><font size="4">pagerank | graph algorithms | bsp | y</font></p>
+      <p class="build fade"><font size="4">other | cos?</font></p>
     </article>
  </slide>
-
+ 
  <slide class="no37">
     <hgroup>
       <h2>Future Work</h2>
     </hgroup>
     <article>
-    <p class="build fade"><font size="5">bug fix</font></p>
-    <p class="build fade"><font size="5">commnucation test</font></p>
-    <p class="build fade"><font size="5">C++ version</font></p>
-    <p class="build fade"><font size="5">optimize hash function to keep load balance &amp key distributed</font></p>
-    <p class="build fade"><font size="5">ft</font></p>
+    <p class="build fade"><font size="4">bug fix</font></p>
+    <p class="build fade"><font size="4">C++ version</font></p>
+    <p class="build fade"><font size="4">optimize hash function (load balance &amp key balance)</font></p>
+    <p class="build fade"><font size="4">ft</font></p>
     </article>
   </slide>
 
@@ -624,21 +632,18 @@ class paralg:
       <h2>Conclusion</h2>
     </hgroup>
     <article>
-      <p class="build fade"><font size="5">a distributed framework for learning algs</font></p>
-      <p class="build fade"><font size="5">distributed both dataset and parameter space</font></p>
-      <p class="build fade"><font size="5">ssp to solve last-reducer problem</font></p>
-      <p class="build fade"><font size="5">zero pain from serial to parallel</font></p>
+      <p class="build fade"><font size="4">A distributed framework for learning algs</font></p>
+      <p class="build fade"><font size="4">Distributed both dataset and parameter space</font></p>
+      <p class="build fade"><font size="4">Ssp to solve last-reducer problem</font></p>
+      <p class="build fade"><font size="4">0 pain from serial to parallel</font></p>
     </article>
   </slide>
 
   <slide class="no39">
     <hgroup>
-      <h2>Two 'Love' Story</h2>
+      <h2>Two Love Stories</h2>
     </hgroup>
     <article>
-      <p class="build fade"><font size="5">Keep confident</font></p>
-      <p class="build fade"><font size="5">Stay focus</font></p>
-      <p class="build fade"><font size="5">Try creative</font></p>
     </article>
   </slide>
 
@@ -647,10 +652,24 @@ class paralg:
       <h2>Logo</h2>
     </hgroup>
     <article>
-      <p class="build fade"><font size="5" color="green">(0.5,1) - (0, 0.5) - (1,0.5) - (0.5, 1) - (0.5, 0.25) - (0.25, 0.25)</font></p>
+      <p class="build fade"><font size="5" color="black">(0.5,1) - (0, 0.5) - (1,0.5) - (0.5, 1) - (0.5, 0.25) - (0.25, 0.25)</font></p>
     </article>
   </slide>
 
+  <slide class="no41">
+    <hgroup>
+      <h2>Reference</h2>
+    </hgroup>
+    <article>
+      <p><font size="4"><a href="http://infolab.stanford.edu/infoseminar/dean.pdf">Talk from Jeff Dean, Jan 2013, Stanford</a></font></p>
+      <p><font size="4"><a href="http://static.googleusercontent.com/media/research.google.com/en//archive/large_deep_networks_nips2012.pdf">Large Scale Distributed Deep Networks, NIPS12</a></font></p>
+      <p><font size="4"><a href="http://www.stanford.edu/class/cs240/readings/lamport.pdf">Lamport's clock design, 1978</a></font></p>
+      <p><font size="4"><a href="http://www.cs.cmu.edu/~seunghak/hotOS-13-cipar.pdf">Solving the straggler problem with bounded staleness, HotOS13</a></font></p>
+      <p><font size="4"><a href="http://books.nips.cc/papers/files/nips24/NIPS2011_0485.pdf">HOGWILD, NIPS11</a></font></p>
+      <p><font size="4"><a href="http://www.australianscience.com.au/research/google/36948.pdf">MapReduce/Bigtable for distributed optimization, NIPS10 LCCC Workshop.</a></font></p>
+    </article>
+  </slide>
+  
   <slide class="thank-you-slide segue nobackground">
     <article class="flexbox vleft auto-fadein">
       <h2>Thank You!</h2>

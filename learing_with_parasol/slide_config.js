@@ -2,7 +2,7 @@ var SLIDE_CONFIG = {
   // Slide settings
   settings: {
     title: 'Learning with Parasol',
-    subtitle: 'Distributed Computational Framework in Action',
+    subtitle: 'Parallel in Action',
     eventInfo: {
       title: 'Group Meeting',
       date: '11/29/2013'
